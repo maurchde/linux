@@ -1,0 +1,11 @@
+ digraph Registration {
+  socket [shape=box];
+  AF_INET [shape=box];
+  AF_NETLINK [shape=box];
+  AF_INETv6 [shape=box];
+  AF_xyz [shape=box];
+  AF_INET -> socket [label="register"];
+  AF_NETLINK -> socket [label="register"];
+  AF_INETv6 -> socket [label="register"];
+  AF_xyz -> socket [label="register"];
+}
