@@ -1,0 +1,29 @@
+digraph kernel_interface {
+
+  subgraph cluster_user_space {
+    label="user space";
+    user_app [label="Application", shape=box];
+    user_lib1 [label="Lib 1", shape=box];
+    user_lib2 [label="Lib 2", shape=box];
+    user_libX [label="Lib X", shape=box];
+    user_app -> user_lib1;
+    user_app -> user_lib2;
+    user_app -> user_libX;
+    user_lib1 -> user_libX;
+  }
+
+  subgraph cluster_kernel_space {
+    label="kernel space";
+
+
+
+    kernel_mod1 [label="Module 1", shape=box];
+    kernel_mod2 [label="Module 2", shape=box];
+    kernel_modX [label="Module X", shape=box];
+    kernel_mod1 -> kernel_mod2;
+    kernel_mod1 -> kernel_modX;
+  }
+
+  user_app -> kernel_mod1 [label="system call"];
+  user_lib2 -> kernel_mod2 [label="system call"];
+}
